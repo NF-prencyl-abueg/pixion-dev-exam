@@ -1,8 +1,6 @@
 using Cysharp.Threading.Tasks;
 using Sirenix.OdinInspector;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public abstract class Consequence : SerializedScriptableObject
 { 
