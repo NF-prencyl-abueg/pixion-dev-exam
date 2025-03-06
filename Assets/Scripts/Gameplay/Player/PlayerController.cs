@@ -10,6 +10,8 @@ public class PlayerController : MonoExt, IMovable, IRotatable, IAbilityCastable
     [TabGroup("References")] [SerializeField] private Camera _camera;
 
     [TabGroup("Ability")] [SerializeField] private AbilityList _abilityList;
+    [TabGroup("Ability")] [SerializeField] private AbilityParameterExtendableEnum _abilityParameterKey;
+    [TabGroup("Ability")] [SerializeField] private AbilityParameterHandler _abilityParameterHandler;
     
     [TabGroup("Debug")] [SerializeField] private bool _canPlayerMove = true;
     [TabGroup("Debug")] [SerializeField] private bool _canPlayerRotate = true;
@@ -32,6 +34,7 @@ public class PlayerController : MonoExt, IMovable, IRotatable, IAbilityCastable
         base.Initialize();
         _playerInput.EnablePlayerActions();
         _abilityList.InitializeAbilities();
+        _abilityParameterHandler.Initialize();
     }
      
     public override void OnSubscriptionSet()
@@ -85,6 +88,6 @@ public class PlayerController : MonoExt, IMovable, IRotatable, IAbilityCastable
 
     public void OnAbilityCast(AbilityExtendableEnum abilityEnum)
     {
-        _abilityList.AbilityDictionary[abilityEnum].OnTriggerAbility(gameObject);
+        _abilityList.AbilityDictionary[abilityEnum].OnTriggerAbility(gameObject, _abilityParameterHandler);
     }
 }

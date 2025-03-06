@@ -10,7 +10,7 @@ public class AbilityPhase: SerializedScriptableObject
     public Stat Duration;
     [OdinSerialize] public Dictionary<float,List<Consequence>> ConsequenceTimingDictionary = new Dictionary<float,List<Consequence>>();
 
-    public async UniTask ExecutePhase(GameObject user)
+    public async UniTask ExecutePhase(AbilityParameterHandler abilityParameters)
     {
         float timeElapsed = 0f;
         List<float> timings = new List<float>(ConsequenceTimingDictionary.Keys);
@@ -31,7 +31,7 @@ public class AbilityPhase: SerializedScriptableObject
                     
                 foreach (var consequence in ConsequenceTimingDictionary[timing])
                 {
-                    await consequence.ExecuteConsequence(user);
+                    await consequence.ExecuteConsequence(abilityParameters);
                 }
                 
             }

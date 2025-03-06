@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44b35ba2c7b345478de52cec5cdb708c, type: 3}
-  m_Name: '[CONSEQUENCE] Slash_DealDamage'
+  m_Script: {fileID: 11500000, guid: d77398273aea4db7a74fbf595cf42615, type: 3}
+  m_Name: CenterTransform
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -21,6 +21,3 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  NextConsequence: {fileID: 0}
-  Damage: {fileID: 11400000, guid: c53da4238c0a10b43aeab3a15d806622, type: 2}
-  EnemyListParameterKey: {fileID: 11400000, guid: 88f2047015708074c8205207f50bbb9d, type: 2}

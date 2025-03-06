@@ -8,11 +8,11 @@ public class AbilityBehaviour : SerializedScriptableObject
 {
     public List<AbilityPhase> Phases;
 
-    public async UniTask ExecuteBehaviour(GameObject user)
+    public async UniTask ExecuteBehaviour(AbilityParameterHandler abilityParameters)
     {
         foreach (var phase in Phases)
         {
-            await phase.ExecutePhase(user);
+            await phase.ExecutePhase(abilityParameters);
         }
     }
 }

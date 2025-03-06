@@ -24,5 +24,7 @@ MonoBehaviour:
   NextConsequence: {fileID: 11400000, guid: cfe9e17927e9952418c4a543878c4777, type: 2}
   Radius: {fileID: 11400000, guid: 93f84cb707545984a9faafb72a9a7498, type: 2}
   FrontOffset: {fileID: 11400000, guid: c6c8cd328e6bf824398915295455448f, type: 2}
+  CenterParameterKey: {fileID: 11400000, guid: 83f84282e1a12074c904e48c25dc1ce3, type: 2}
+  EnemyListParameterKey: {fileID: 11400000, guid: 88f2047015708074c8205207f50bbb9d, type: 2}
   IsVisualized: 1
   VisualizerPrefab: {fileID: 2535171875596444428, guid: 43a2dfde242049e4ea179a5585c3c598, type: 3}

@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
@@ -6,14 +8,25 @@ public class DealDamageConsequence : Consequence
 {
     public Stat Damage;
     
-    public override async UniTask ExecuteConsequence(GameObject obj)
+    public AbilityParameterExtendableEnum EnemyListParameterKey;
+    
+    public override async UniTask ExecuteConsequence(AbilityParameterHandler abilityParameters)
     {
-        if (!obj)
+        List<GameObject> targetList = abilityParameters.GetParameter<List<GameObject>>(EnemyListParameterKey);
+        if (targetList.Count <= 0)
+        {
+            abilityParameters.RemoveParameter(EnemyListParameterKey);
             return;
+        }
 
-        if (!obj.TryGetComponent<Health>(out var targetHealth))
-            return;
-        
-        targetHealth.ApplyDamage(Damage.Value);
+        foreach (GameObject target in targetList.ToList())
+        {
+            if (!target.TryGetComponent<Health>(out var targetHealth))
+            {
+                targetList.Remove(target);
+                continue;
+            }
+            targetHealth.ApplyDamage(Damage.Value);
+        }
     }
 }

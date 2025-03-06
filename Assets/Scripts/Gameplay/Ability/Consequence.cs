@@ -6,15 +6,15 @@ public abstract class Consequence : SerializedScriptableObject
 { 
     public Consequence NextConsequence;
 
-    public virtual async UniTask ExecuteConsequence(GameObject obj)
+    public virtual async UniTask ExecuteConsequence(AbilityParameterHandler abilityParameters)
     {
     }
 
-    protected async UniTask ExecuteNextConsequence(GameObject obj)
+    protected async UniTask ExecuteNextConsequence(AbilityParameterHandler abilityParameters)
     {
         if (NextConsequence == null)
             return;
         
-        await NextConsequence.ExecuteConsequence(obj);
+        await NextConsequence.ExecuteConsequence(abilityParameters);
     }
 }
