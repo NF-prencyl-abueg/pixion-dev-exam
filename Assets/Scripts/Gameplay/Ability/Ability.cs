@@ -6,15 +6,14 @@ using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Ability", menuName = "ScriptableObjects/Ability/New Ability")]
 [Serializable]
-public class Ability : SerializedScriptableObject
+public class Ability : SerializedScriptableObject, IActivateable, ICooldown
 {
     public string ID;
     public Stat Cooldown;
     public AbilityBehaviour Behaviour;
     
-    
     private bool _isOnCooldown = false;
-
+    private float _remainingTime = 0f;
     public async UniTask OnTriggerAbility(GameObject user)
     {
         if (_isOnCooldown)
@@ -32,7 +31,12 @@ public class Ability : SerializedScriptableObject
     
     public async UniTask RunCooldownTimer(float duration)
     {
-        await UniTask.Delay(TimeSpan.FromSeconds(duration));
+        _remainingTime = duration;
+        while (_remainingTime > 0f)
+        {
+            await UniTask.Yield(PlayerLoopTiming.Update);
+            _remainingTime -= Time.deltaTime;
+        }
         _isOnCooldown = false;
     }
 
