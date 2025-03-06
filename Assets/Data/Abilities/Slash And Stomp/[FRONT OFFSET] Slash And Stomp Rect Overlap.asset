@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1be5d1c058248ef923f070eec7a343d, type: 3}
-  m_Name: '[CONSEQUENCE] Slash_SphereOverlap'
+  m_Script: {fileID: 11500000, guid: 446733e39978472996a4fc2ed448209e, type: 3}
+  m_Name: '[FRONT OFFSET] Slash And Stomp Rect Overlap'
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -21,8 +21,4 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  NextConsequence: {fileID: 11400000, guid: 5f16b03cea0df3849881062e73aa4302, type: 2}
-  Radius: {fileID: 11400000, guid: 529e3daaf73ab714288b10f5ba31a674, type: 2}
-  FrontOffset: {fileID: 11400000, guid: 6ea04bc3825949d4f8411cbdfdaf1e41, type: 2}
-  IsVisualized: 1
-  VisualizerPrefab: {fileID: 2535171875596444428, guid: 43a2dfde242049e4ea179a5585c3c598, type: 3}
+  Value: 1
