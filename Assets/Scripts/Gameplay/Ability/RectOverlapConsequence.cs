@@ -21,14 +21,13 @@ public class RectOverlapConsequence : Consequence
         Vector3 halfExtents = Utility.CalculateHalfExtents(Width.Value, Height.Value, Depth.Value);
         Quaternion boxRotation = Quaternion.LookRotation(obj.transform.forward);
         
-        Collider[] colliders = Physics.OverlapBox(center, halfExtents, boxRotation);
-
         if(IsVisualized)
             SpawnVisualizer(center, halfExtents, boxRotation);
         
+        Collider[] colliders = Physics.OverlapBox(center, halfExtents, boxRotation);
+        
         foreach (Collider collider in colliders)
         {
-            Debug.Log(collider.name);
             if (!collider.CompareTag("Enemy"))
                 continue;
             
