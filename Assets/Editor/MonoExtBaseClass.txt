@@ -1,0 +1,26 @@
+using NF.Main;
+using UnityEngine;
+
+public class #SCRIPTNAME# : MonoExt
+{
+    private void Awake()
+    {
+        //Initialize mono extension
+        Initialize();
+    }
+    private void Start()
+    {
+        //Events
+        OnSubscriptionSet();
+    }
+    
+    public override void Initialize(object data = null)
+    {
+        base.Initialize(data);
+    }
+    
+    public override void OnSubscriptionSet()
+    {
+        base.OnSubscriptionSet();
+    }    
+}
