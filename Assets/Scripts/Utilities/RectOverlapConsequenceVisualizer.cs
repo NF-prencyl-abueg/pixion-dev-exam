@@ -3,6 +3,12 @@ using UnityEngine;
 
 public class RectOverlapConsequenceVisualizer : MonoBehaviour
 {
+    [SerializeField] private VisualizerData _visualizerData;
+    
+    private Vector3 _center;
+    private Vector3 _halfExtents;
+    private Quaternion _rotation;
+    
     public void Initialize(Vector3 center, Vector3 halfExtents, Quaternion rotation)
     {   
         _center = center;
@@ -10,19 +16,12 @@ public class RectOverlapConsequenceVisualizer : MonoBehaviour
         _rotation = rotation;
     }
     
-    private Vector3 _center;
-    private Vector3 _halfExtents;
-    private Quaternion _rotation;
-    
-    [SerializeField] private Material _lineMaterial;
-    [SerializeField] private Color _color = Color.yellow;
-
     private void OnRenderObject()
     {
-        if (_lineMaterial == null)
+        if (_visualizerData.LineMaterials == null)
             return;
     
-        _lineMaterial.SetPass(0);
+        _visualizerData.LineMaterials.SetPass(0);
         
         GL.PushMatrix();
         
@@ -30,7 +29,7 @@ public class RectOverlapConsequenceVisualizer : MonoBehaviour
         GL.MultMatrix(matrix);
         
         GL.Begin(GL.LINES);
-        GL.Color(_color);
+        GL.Color(_visualizerData.Color);
     
         
         Vector3[] corners = Utility.CalculateCorners(Vector3.zero, _halfExtents);
@@ -50,5 +49,4 @@ public class RectOverlapConsequenceVisualizer : MonoBehaviour
         
         Destroy(gameObject,0.35f);
     }
-
 }
