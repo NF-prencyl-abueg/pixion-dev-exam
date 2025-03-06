@@ -1,6 +1,5 @@
-using UnityEngine;
 
-public class Health : MonoExt
+public class Health : MonoExt, IDamageable
 {
     public float HP = 100;
     public void ApplyDamage(float damageValue)
