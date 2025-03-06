@@ -1,11 +1,12 @@
 using System;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using UniRx;
 using UnityEngine;
 
 
 //An extension of the mono behaviour script, this will handle auto disposable of events
-public class MonoExt : MonoBehaviour
+public class MonoExt : SerializedMonoBehaviour
 {
     protected List<IDisposable> disposables = null;
     

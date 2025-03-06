@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
+using UniRx;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Ability Parameter Handler", menuName = "ScriptableObjects/Utility/Ability Parameter")]
@@ -9,11 +10,29 @@ public class AbilityParameterHandler : SerializedScriptableObject
 
     public Dictionary<AbilityParameterExtendableEnum, object> AbilityParameters = new Dictionary<AbilityParameterExtendableEnum, object>();
 
-    
+    public Subject<AbilityExtendableEnum> AbilityStarted;
+    public Subject<bool> AbilityStillExecuting;
     public void Initialize()
     {
         IsAnAbilityExecuting = false;
         AbilityParameters = new Dictionary<AbilityParameterExtendableEnum, object>();
+    }
+
+    public void StartAbility(AbilityExtendableEnum abilityExtendableEnum)
+    {
+        IsAnAbilityExecuting = true;
+        AbilityStarted?.OnNext(abilityExtendableEnum);
+    }
+    
+    public void FinishAbility()
+    {
+        IsAnAbilityExecuting = false;
+        AbilityIsStillExecuting();
+    }
+
+    public void AbilityIsStillExecuting()
+    {
+        AbilityStillExecuting.OnNext(IsAnAbilityExecuting);
     }
 
     public void SetParameter(AbilityParameterExtendableEnum abilityParameterKey, object value)
@@ -30,4 +49,6 @@ public class AbilityParameterHandler : SerializedScriptableObject
     {
         AbilityParameters.Remove(abilityParameterKey);
     }
+
+    
 }

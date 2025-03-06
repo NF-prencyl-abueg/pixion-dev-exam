@@ -22,6 +22,7 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   ID: Quick_Slash
+  AbilityEnum: {fileID: 11400000, guid: be9dd6f19e9fe4f4cb127c8dfe5135fd, type: 2}
   Cooldown: {fileID: 11400000, guid: 894007880995ce74eb7cee6d97673c3e, type: 2}
   Behaviour: {fileID: 11400000, guid: 357e824dc3044524e97f3f24703f1fae, type: 2}
   CenterTransformParameter: {fileID: 11400000, guid: 83f84282e1a12074c904e48c25dc1ce3, type: 2}
