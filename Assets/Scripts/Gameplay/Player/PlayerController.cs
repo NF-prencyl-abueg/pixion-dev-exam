@@ -31,6 +31,7 @@ public class PlayerController : MonoExt, IMovable, IRotatable
     {
         base.Initialize();
         _playerInput.EnablePlayerActions();
+        _abilityList.InitializeAbilities();
     }
      
     public override void OnSubscriptionSet()
@@ -84,6 +85,6 @@ public class PlayerController : MonoExt, IMovable, IRotatable
 
     public void OnAbilityCast(AbilityExtendableEnum abilityEnum)
     {
-        Debug.Log($"Ability Casted: {_abilityList.AbilityDictionary[abilityEnum].name}");
+        _abilityList.AbilityDictionary[abilityEnum].OnTriggerAbility(gameObject);
     }
 }

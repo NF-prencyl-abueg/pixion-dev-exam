@@ -25,5 +25,6 @@ MonoBehaviour:
   Width: {fileID: 11400000, guid: 375832764de46fd45bd14319f27aa089, type: 2}
   Depth: {fileID: 11400000, guid: 44d0257c74433c64ab31708c1abe97eb, type: 2}
   Height: {fileID: 11400000, guid: e13316518738a9448aeb3ef6289125f3, type: 2}
-  IsVisualized: 0
-  VisualizerPrefab: {fileID: 0}
+  FrontOffset: {fileID: 11400000, guid: 2fc668d5f18c83243bab0ab02acca2a6, type: 2}
+  IsVisualized: 1
+  VisualizerPrefab: {fileID: 3258453889424858441, guid: 6021b8da3e18d8e42ac0e7373cf86006, type: 3}
