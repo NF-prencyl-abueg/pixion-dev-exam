@@ -2,5 +2,5 @@ using UnityEngine;
 
 public interface IRotatable
 {
-    void OnPlayerRotate(Vector3 rotationDirection, MovementStats movementStats);
+    void Rotate(Vector3 rotationDirection, MovementStats movementStats);
 }

@@ -7,6 +7,7 @@ public class PlayerController : MonoExt, IMovable, IRotatable
     [TabGroup("References")] [SerializeField] private MovementStats _movementStats;
     [TabGroup("References")] [SerializeField] private PlayerInputReader _playerInput;
     [TabGroup("References")] [SerializeField] private Rigidbody _rigidbody;
+    [TabGroup("References")] [SerializeField] private Camera _camera;
     
     [TabGroup("Debug")] [SerializeField] private bool _canPlayerMove = true;
     [TabGroup("Debug")] [SerializeField] private bool _canPlayerRotate = true;
@@ -32,6 +33,7 @@ public class PlayerController : MonoExt, IMovable, IRotatable
     public override void OnSubscriptionSet()
     {
         base.OnSubscriptionSet();
+        //Event that handles player movement
         AddEvent(_playerInput.Movement,movementDirection => _movementInput = movementDirection);
     }
 
@@ -40,32 +42,21 @@ public class PlayerController : MonoExt, IMovable, IRotatable
         HandleMovement();
     }
 
+    //Handles movement and rotation
     private void HandleMovement()
     {
         if (!_canPlayerMove)
             return;
         
-        // Get camera direction vectors
-        Transform camTransform = Camera.main.transform;
-
-        Vector3 camForward = camTransform.forward;
-        camForward.y = 0;
-        camForward.Normalize();
+        Vector3 normalizedDirection = Utility.CalculateCameraDirection(_camera, _movementInput);
         
-        Vector3 camRight = camTransform.right;
-        camRight.y = 0;
-        camRight.Normalize();
-        
-        Vector3 normalizedDirection = camRight * _movementInput.x +  camForward * _movementInput.y;
-        normalizedDirection.Normalize();
-        
-        
-        // Smooth Rotation
-        OnPlayerRotate(normalizedDirection, _movementStats);
-        OnPlayerMove(normalizedDirection, _movementStats);
+        Rotate(normalizedDirection, _movementStats);
+        Move(normalizedDirection, _movementStats);
     }
 
-    public void OnPlayerMove(Vector3 movementDirection, MovementStats movementStats)
+
+    //Assigns care of players movement
+    public void Move(Vector3 movementDirection, MovementStats movementStats)
     {
         Vector3 velocity = movementDirection * movementStats.MovementSpeed;
         velocity.y = _rigidbody.linearVelocity.y; // Maintain original vertical velocity (gravity)
@@ -74,8 +65,12 @@ public class PlayerController : MonoExt, IMovable, IRotatable
     }
     
 
-    public void OnPlayerRotate(Vector3 rotationDirection, MovementStats movementStats)
+    //Assigns player rotations
+    public void Rotate(Vector3 rotationDirection, MovementStats movementStats)
     {
+        if (!_canPlayerRotate)
+            return;
+        
         if (rotationDirection.sqrMagnitude < 0.01f)
             return;
         
