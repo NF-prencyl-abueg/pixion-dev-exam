@@ -1,7 +1,13 @@
-public class Health
+using UnityEngine;
+
+public class Health : MonoExt
 {
+    public float HP = 100;
     public void ApplyDamage(float damageValue)
     {
-        throw new System.NotImplementedException();
+        HP -= damageValue;
+
+        if (HP <= 0)
+            Destroy(gameObject, 0.2f);
     }
 }
