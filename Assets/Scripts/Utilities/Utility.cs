@@ -28,12 +28,6 @@ public static class Utility
         return normalizedDirection;
     }
 
-    public static async UniTask<bool> RunCooldownTimer(float duration)
-    {
-        await UniTask.Delay(TimeSpan.FromSeconds(duration));
-        return false;
-    }
-
     public static Vector3 CalculateHalfExtents(float width, float height, float depth)
     {
         return new Vector3(width * HALF_VALUE, height * HALF_VALUE, depth * HALF_VALUE);

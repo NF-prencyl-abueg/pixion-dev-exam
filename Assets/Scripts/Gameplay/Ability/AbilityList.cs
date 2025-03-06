@@ -8,4 +8,12 @@ using UnityEngine.Rendering;
 public class AbilityList : SerializedScriptableObject
 {
     [SerializeField][OdinSerialize] public Dictionary<AbilityExtendableEnum, Ability> AbilityDictionary = new Dictionary<AbilityExtendableEnum, Ability>();
+
+    public void InitializeAbilities()
+    {
+        foreach (var (abilityType, ability) in AbilityDictionary)
+        {
+            ability.ResetCooldown();
+        }
+    }
 }
