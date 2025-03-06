@@ -10,6 +10,7 @@ using UnityEngine.Serialization;
 public class Ability : SerializedScriptableObject, IActivateable, ICooldown
 {
     public string ID;
+    public AbilityExtendableEnum AbilityEnum;
     public Stat Cooldown;
     public AbilityBehaviour Behaviour;
     public AbilityParameterExtendableEnum CenterTransformParameter;
@@ -22,15 +23,19 @@ public class Ability : SerializedScriptableObject, IActivateable, ICooldown
             return;
 
         if (abilityParameters.IsAnAbilityExecuting)
+        {
+            abilityParameters.AbilityIsStillExecuting();
             return;
+        }
         
         _isOnCooldown = true;
         RunCooldownTimer(Cooldown.Value).Forget();
 
-        abilityParameters.IsAnAbilityExecuting = true;
         abilityParameters.SetParameter(CenterTransformParameter, obj);
+        
+        abilityParameters.StartAbility(AbilityEnum);
         await Behaviour.ExecuteBehaviour(abilityParameters);
-        abilityParameters.IsAnAbilityExecuting = false;
+        abilityParameters.FinishAbility();
     }
     
     public async UniTask RunCooldownTimer(float duration)
@@ -48,4 +53,10 @@ public class Ability : SerializedScriptableObject, IActivateable, ICooldown
     {
         _isOnCooldown = false;
     }
+
+    public float GetNormalizedRemainingTime()
+    {
+        return _remainingTime / Cooldown.Value;
+    }
+    
 }

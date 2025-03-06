@@ -10,7 +10,6 @@ public class PlayerController : MonoExt, IMovable, IRotatable, IAbilityCastable
     [TabGroup("References")] [SerializeField] private Camera _camera;
 
     [TabGroup("Ability")] [SerializeField] private AbilityList _abilityList;
-    [TabGroup("Ability")] [SerializeField] private AbilityParameterExtendableEnum _abilityParameterKey;
     [TabGroup("Ability")] [SerializeField] private AbilityParameterHandler _abilityParameterHandler;
     
     [TabGroup("Debug")] [SerializeField] private bool _canPlayerMove = true;
