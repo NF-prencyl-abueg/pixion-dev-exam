@@ -1,9 +1,11 @@
+using System;
 using Cysharp.Threading.Tasks;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
 
 [CreateAssetMenu(fileName = "New Ability", menuName = "ScriptableObjects/Ability/New Ability")]
+[Serializable]
 public class Ability : SerializedScriptableObject
 {
     public string ID;

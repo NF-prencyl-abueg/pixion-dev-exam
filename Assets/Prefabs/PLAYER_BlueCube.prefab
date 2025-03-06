@@ -53,6 +53,7 @@ MonoBehaviour:
   _playerInput: {fileID: 11400000, guid: bccb5b502b38ed64fb694b53d16cc9c6, type: 2}
   _rigidbody: {fileID: 2355309230547412661}
   _camera: {fileID: 0}
+  _abilityList: {fileID: 11400000, guid: 3c39be05980d0074db691ba77953e950, type: 2}
   _canPlayerMove: 1
   _canPlayerRotate: 1
 --- !u!33 &678273270418327487
