@@ -8,9 +8,12 @@ public class PlayerController : MonoExt, IMovable, IRotatable
     [TabGroup("References")] [SerializeField] private PlayerInputReader _playerInput;
     [TabGroup("References")] [SerializeField] private Rigidbody _rigidbody;
     [TabGroup("References")] [SerializeField] private Camera _camera;
+
+    [TabGroup("Ability")] [SerializeField] private AbilityList _abilityList;
     
     [TabGroup("Debug")] [SerializeField] private bool _canPlayerMove = true;
     [TabGroup("Debug")] [SerializeField] private bool _canPlayerRotate = true;
+    
     
     private Vector2 _movementInput = Vector2.zero;
     private void Awake()
@@ -35,6 +38,7 @@ public class PlayerController : MonoExt, IMovable, IRotatable
         base.OnSubscriptionSet();
         //Event that handles player movement
         AddEvent(_playerInput.Movement,movementDirection => _movementInput = movementDirection);
+        AddEvent(_playerInput.Ability, OnAbilityCast);
     }
 
     public void FixedUpdate()
@@ -76,5 +80,10 @@ public class PlayerController : MonoExt, IMovable, IRotatable
         
         Quaternion targetRotation = Quaternion.LookRotation(rotationDirection, Vector3.up);
         _rigidbody.MoveRotation(Quaternion.Slerp(_rigidbody.rotation, targetRotation, movementStats.RotationSmoothTime * Time.fixedDeltaTime));
+    }
+
+    public void OnAbilityCast(AbilityExtendableEnum abilityEnum)
+    {
+        Debug.Log($"Ability Casted: {_abilityList.AbilityDictionary[abilityEnum].name}");
     }
 }

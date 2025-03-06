@@ -1,13 +1,15 @@
 using System;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
+using Sirenix.Serialization;
 using UniRx;
 using UnityEngine;using UnityEngine.InputSystem;
+using UnityEngine.Rendering;
 
 [CreateAssetMenu(fileName = "PlayerInputReader", menuName = "ScriptableObjects/Player/InputReader")]
 public class PlayerInputReader : SerializedScriptableObject, InputSystem_Actions.IPlayerActions
 {
-    [SerializeField] private Dictionary<int, AbilityExtendableEnum> AbilityDictionary;
+    [SerializeField] [OdinSerialize] private Dictionary<int, AbilityExtendableEnum> AbilityDictionary = new Dictionary<int, AbilityExtendableEnum>();
     
     public Subject<Vector2> Movement {get; private set;}
     public Subject<AbilityExtendableEnum> Ability {get; private set;}
@@ -45,17 +47,20 @@ public class PlayerInputReader : SerializedScriptableObject, InputSystem_Actions
 
     public void OnAbility1(InputAction.CallbackContext context)
     {
-        Ability.OnNext(AbilityDictionary[1]);
+        if(context.performed)
+            Ability.OnNext(AbilityDictionary[1]);
     }
 
     public void OnAbility2(InputAction.CallbackContext context)
     {
-        Ability.OnNext(AbilityDictionary[2]);
+        if(context.performed)
+            Ability.OnNext(AbilityDictionary[2]);
     }
 
     public void OnAbility3(InputAction.CallbackContext context)
     {
-        Ability.OnNext(AbilityDictionary[3]);
+        if(context.performed)
+            Ability.OnNext(AbilityDictionary[3]);
     }
 
 }

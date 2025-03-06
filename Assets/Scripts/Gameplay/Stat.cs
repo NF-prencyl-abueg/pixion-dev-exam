@@ -5,5 +5,5 @@ using UnityEngine.Serialization;
 [CreateAssetMenu(fileName = "Stat", menuName = "ScriptableObjects/Stat")]
 public class Stat : SerializedScriptableObject
 {
-    [FormerlySerializedAs("value")] public float Value;
+    public float Value;
 }
