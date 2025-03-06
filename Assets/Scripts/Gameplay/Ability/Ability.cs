@@ -24,11 +24,20 @@ public class Ability : SerializedScriptableObject
 
         _isOnCooldown = true;
         
-        Utility.RunCooldownTimer(Cooldown.Value).Forget();
+        RunCooldownTimer(Cooldown.Value).Forget();
 
 
         await Behaviour.ExecuteBehaviour(user);
-        //set ability execution to true;
+    }
+    
+    public async UniTask RunCooldownTimer(float duration)
+    {
+        await UniTask.Delay(TimeSpan.FromSeconds(duration));
+        _isOnCooldown = false;
+    }
 
+    public void ResetCooldown()
+    {
+        _isOnCooldown = false;
     }
 }
