@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 446733e39978472996a4fc2ed448209e, type: 3}
-  m_Name: '[WIDTH] Quick Slash'
+  m_Name: '[FRONT OFFSET] Quick Slash'
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -21,4 +21,4 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  Value: 5
+  Value: 1
