@@ -2,7 +2,7 @@ using System;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-public class PlayerController : MonoExt, IMovable, IRotatable
+public class PlayerController : MonoExt, IMovable, IRotatable, IAbilityCastable
 {
     [TabGroup("References")] [SerializeField] private MovementStats _movementStats;
     [TabGroup("References")] [SerializeField] private PlayerInputReader _playerInput;
