@@ -15,7 +15,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Skill1",
+                    "name": "Ability1",
                     "type": "Button",
                     "id": "45ece071-f4bc-4de8-b4b7-2f711d82c4a4",
                     "expectedControlType": "",
@@ -24,7 +24,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Skill2",
+                    "name": "Ability2",
                     "type": "Button",
                     "id": "622afa69-fc80-408d-a3b5-fadc578955b0",
                     "expectedControlType": "",
@@ -33,7 +33,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Skill3",
+                    "name": "Ability3",
                     "type": "Button",
                     "id": "2ad66b84-49bf-4990-b0bd-2d8c53db3ccd",
                     "expectedControlType": "",
@@ -160,7 +160,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Skill1",
+                    "action": "Ability1",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -171,7 +171,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Skill2",
+                    "action": "Ability2",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -182,7 +182,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Skill3",
+                    "action": "Ability3",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
