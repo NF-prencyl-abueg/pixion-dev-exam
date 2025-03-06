@@ -2,6 +2,7 @@ using System;
 using Cysharp.Threading.Tasks;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 
 [CreateAssetMenu(fileName = "New Ability", menuName = "ScriptableObjects/Ability/New Ability")]
@@ -11,22 +12,25 @@ public class Ability : SerializedScriptableObject, IActivateable, ICooldown
     public string ID;
     public Stat Cooldown;
     public AbilityBehaviour Behaviour;
+    public AbilityParameterExtendableEnum CenterTransformParameter;
     
     private bool _isOnCooldown = false;
     private float _remainingTime = 0f;
-    public async UniTask OnTriggerAbility(GameObject user)
+    public async UniTask OnTriggerAbility(GameObject obj, AbilityParameterHandler abilityParameters)
     {
         if (_isOnCooldown)
             return;
-        
-        //add logic for if another ability is executing;
 
-        _isOnCooldown = true;
+        if (abilityParameters.IsAnAbilityExecuting)
+            return;
         
+        _isOnCooldown = true;
         RunCooldownTimer(Cooldown.Value).Forget();
 
-
-        await Behaviour.ExecuteBehaviour(user);
+        abilityParameters.IsAnAbilityExecuting = true;
+        abilityParameters.SetParameter(CenterTransformParameter, obj);
+        await Behaviour.ExecuteBehaviour(abilityParameters);
+        abilityParameters.IsAnAbilityExecuting = false;
     }
     
     public async UniTask RunCooldownTimer(float duration)

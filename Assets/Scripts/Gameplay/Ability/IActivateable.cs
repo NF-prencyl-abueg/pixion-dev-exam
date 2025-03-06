@@ -3,5 +3,5 @@ using UnityEngine;
 
 public interface IActivateable
 {
-    UniTask OnTriggerAbility(GameObject user);
+    UniTask OnTriggerAbility(GameObject obj, AbilityParameterHandler abilityParameters);
 }

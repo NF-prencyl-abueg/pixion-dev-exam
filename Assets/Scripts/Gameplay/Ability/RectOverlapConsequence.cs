@@ -1,6 +1,10 @@
+using System.Collections.Generic;
+using System.Linq;
 using Cysharp.Threading.Tasks;
 using Sirenix.OdinInspector;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 [CreateAssetMenu(fileName = "New Rect Overlap Consequence", menuName = "ScriptableObjects/Ability/Rect Overlap Consequence")]
 public class RectOverlapConsequence : Consequence
@@ -8,31 +12,41 @@ public class RectOverlapConsequence : Consequence
     public Stat Width;
     public Stat Depth;
     public Stat Height;
-    public Stat FrontOffset; 
-        
+    public Stat FrontOffset;
+
+    public AbilityParameterExtendableEnum CenterParameterKey;
+    public AbilityParameterExtendableEnum EnemyListParameterKey;
+    
     public bool IsVisualized = false;
     [ShowIf("IsVisualized")]
     public RectOverlapConsequenceVisualizer VisualizerPrefab;
     
     
-    public override async UniTask ExecuteConsequence(GameObject obj)
+    public override async UniTask ExecuteConsequence(AbilityParameterHandler abilityParameters)
     {
-        Vector3 center = obj.transform.position + obj.transform.forward * FrontOffset.Value;
+        Transform centerTransform = abilityParameters.GetParameter<GameObject>(CenterParameterKey).transform;
+        
+        Vector3 center = centerTransform.position + centerTransform.forward * FrontOffset.Value;
         Vector3 halfExtents = Utility.CalculateHalfExtents(Width.Value, Height.Value, Depth.Value);
-        Quaternion boxRotation = Quaternion.LookRotation(obj.transform.forward);
+        
+        Quaternion boxRotation = Quaternion.LookRotation(centerTransform.transform.forward);
         
         if(IsVisualized)
             SpawnVisualizer(center, halfExtents, boxRotation);
         
         Collider[] colliders = Physics.OverlapBox(center, halfExtents, boxRotation);
+        List<GameObject> targets = new();
         
         foreach (Collider collider in colliders)
         {
             if (!collider.CompareTag("Enemy"))
                 continue;
             
-            ExecuteNextConsequence(collider.gameObject).Forget();
+            targets.Add(collider.gameObject);
         }
+        
+        abilityParameters.SetParameter(EnemyListParameterKey, targets.ToList());
+        await ExecuteNextConsequence(abilityParameters);
     }
 
     public void SpawnVisualizer( Vector3 center, Vector3 halfExtents, Quaternion boxRotation)
