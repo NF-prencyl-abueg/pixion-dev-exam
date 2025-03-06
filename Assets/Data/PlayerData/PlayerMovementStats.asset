@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: PlayerMovementStats
   m_EditorClassIdentifier: 
   MovementSpeed: 5
-  RotationSmoothTime: 3
+  RotationSmoothTime: 10

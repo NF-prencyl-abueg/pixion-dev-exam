@@ -51,6 +51,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _movementStats: {fileID: 11400000, guid: 19ffc313a2c26ef4889c015655615fb5, type: 2}
   _playerInput: {fileID: 11400000, guid: bccb5b502b38ed64fb694b53d16cc9c6, type: 2}
+  _rigidbody: {fileID: 2355309230547412661}
+  _camera: {fileID: 0}
   _canPlayerMove: 1
   _canPlayerRotate: 1
 --- !u!33 &678273270418327487
@@ -151,8 +153,8 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
+  m_Interpolate: 1
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!1 &7235891392908402173
 GameObject:
