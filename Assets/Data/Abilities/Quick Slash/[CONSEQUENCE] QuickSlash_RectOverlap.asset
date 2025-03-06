@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d534e4b91cb24005b243f55f5cd8da8a, type: 3}
+  m_Name: '[CONSEQUENCE] QuickSlash_RectOverlap'
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  NextConsequence: {fileID: 11400000, guid: a3e93a88ce538ed49a31917a385abe75, type: 2}
+  Width: {fileID: 11400000, guid: 375832764de46fd45bd14319f27aa089, type: 2}
+  Depth: {fileID: 11400000, guid: 44d0257c74433c64ab31708c1abe97eb, type: 2}
+  Height: {fileID: 11400000, guid: e13316518738a9448aeb3ef6289125f3, type: 2}
+  IsVisualized: 0
+  VisualizerPrefab: {fileID: 0}
