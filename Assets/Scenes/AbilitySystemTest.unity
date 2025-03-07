@@ -193,10 +193,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3669890053050685099, guid: 6fb6fe6b6b88ee740a8732f7723c32b8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 641383904}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2708794089237627990, guid: 6fb6fe6b6b88ee740a8732f7723c32b8, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 755875926}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6fb6fe6b6b88ee740a8732f7723c32b8, type: 3}
 --- !u!1 &237883956
 GameObject:
@@ -417,7 +414,7 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   _healthBar: {fileID: 281148228}
-  _health: {fileID: 755875926}
+  _health: {fileID: 755875931}
   _smoothTime: 25
 --- !u!1 &298125553
 GameObject:
@@ -1125,39 +1122,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &755875920 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2708794089237627990, guid: 6fb6fe6b6b88ee740a8732f7723c32b8, type: 3}
-  m_PrefabInstance: {fileID: 50088168}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &755875925 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3669890053050685099, guid: 6fb6fe6b6b88ee740a8732f7723c32b8, type: 3}
   m_PrefabInstance: {fileID: 50088168}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &755875926
+--- !u!114 &755875931 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 4329086884533218667, guid: 6fb6fe6b6b88ee740a8732f7723c32b8, type: 3}
+  m_PrefabInstance: {fileID: 50088168}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 755875920}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c793501c353b41268d8f54f41a652bca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes: []
-  MaxHealth: {fileID: 11400000, guid: 3d0b36cf3b4fcde4592b59a7220d69d7, type: 2}
-  HP: 0
 --- !u!1 &901512789
 GameObject:
   m_ObjectHideFlags: 0
@@ -1916,7 +1896,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3669890053050685099, guid: 6fb6fe6b6b88ee740a8732f7723c32b8, type: 3}
   m_PrefabInstance: {fileID: 8309825700371580423}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1245073462 stripped
+--- !u!114 &1245073467 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4329086884533218667, guid: 6fb6fe6b6b88ee740a8732f7723c32b8, type: 3}
   m_PrefabInstance: {fileID: 8309825700371580423}
@@ -2399,7 +2379,7 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   _healthBar: {fileID: 1948471272}
-  _health: {fileID: 1245073462}
+  _health: {fileID: 1245073467}
   _smoothTime: 25
 --- !u!1 &2098232490
 GameObject:
