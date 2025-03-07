@@ -15,7 +15,8 @@ public class RectOverlapConsequence : Consequence
     public Stat FrontOffset;
 
     public AbilityParameterExtendableEnum CenterParameterKey;
-    public AbilityParameterExtendableEnum EnemyListParameterKey;
+    public AbilityParameterExtendableEnum TargetListParameterKey;
+    public AbilityParameterExtendableEnum TargetTag;
     
     public bool IsVisualized = false;
     [ShowIf("IsVisualized")]
@@ -39,13 +40,13 @@ public class RectOverlapConsequence : Consequence
         
         foreach (Collider collider in colliders)
         {
-            if (!collider.CompareTag("Enemy"))
+            if (!collider.CompareTag(TargetTag.name))
                 continue;
             
             targets.Add(collider.gameObject);
         }
         
-        abilityParameters.SetParameter(EnemyListParameterKey, targets.ToList());
+        abilityParameters.SetParameter(TargetListParameterKey, targets.ToList());
         await ExecuteNextConsequence(abilityParameters);
     }
 

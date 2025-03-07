@@ -127,6 +127,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2289309476907061312, guid: 6fb6fe6b6b88ee740a8732f7723c32b8, type: 3}
+      propertyPath: m_Constraints
+      value: 80
+      objectReference: {fileID: 0}
     - target: {fileID: 2708794089237627990, guid: 6fb6fe6b6b88ee740a8732f7723c32b8, type: 3}
       propertyPath: m_Name
       value: ENEMY_RedCube_2
@@ -175,6 +179,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4329086884533218667, guid: 6fb6fe6b6b88ee740a8732f7723c32b8, type: 3}
+      propertyPath: MaxHealth
+      value: 
+      objectReference: {fileID: 11400000, guid: 3d0b36cf3b4fcde4592b59a7220d69d7, type: 2}
+    - target: {fileID: 4329086884533218667, guid: 6fb6fe6b6b88ee740a8732f7723c32b8, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 4329086884533218667, guid: 6fb6fe6b6b88ee740a8732f7723c32b8, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -615,7 +627,7 @@ MonoBehaviour:
   m_Padding:
     m_Left: 0
     m_Right: 0
-    m_Top: 0
+    m_Top: -10
     m_Bottom: 0
   m_ChildAlignment: 4
   m_Spacing: 0
@@ -676,7 +688,7 @@ GameObject:
   - component: {fileID: 488007035}
   - component: {fileID: 488007034}
   m_Layer: 5
-  m_Name: Text (TMP) (1)
+  m_Name: TMP_QuickSlashLabel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1291,7 +1303,7 @@ GameObject:
   - component: {fileID: 944260821}
   - component: {fileID: 944260820}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: TMP_CirculasSlashLabel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1899,39 +1911,22 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!1 &1245073456 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2708794089237627990, guid: 6fb6fe6b6b88ee740a8732f7723c32b8, type: 3}
-  m_PrefabInstance: {fileID: 8309825700371580423}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1245073461 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3669890053050685099, guid: 6fb6fe6b6b88ee740a8732f7723c32b8, type: 3}
   m_PrefabInstance: {fileID: 8309825700371580423}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1245073462
+--- !u!114 &1245073462 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 4329086884533218667, guid: 6fb6fe6b6b88ee740a8732f7723c32b8, type: 3}
+  m_PrefabInstance: {fileID: 8309825700371580423}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1245073456}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c793501c353b41268d8f54f41a652bca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes: []
-  MaxHealth: {fileID: 11400000, guid: 441d04f780e6c7e41b111776915d6828, type: 2}
-  HP: 0
 --- !u!1 &1646046433
 GameObject:
   m_ObjectHideFlags: 0
@@ -1944,7 +1939,7 @@ GameObject:
   - component: {fileID: 1646046436}
   - component: {fileID: 1646046435}
   m_Layer: 5
-  m_Name: Text (TMP) (1)
+  m_Name: TMP_SlashAndStompLabel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2672,26 +2667,27 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4329086884533218667, guid: 6fb6fe6b6b88ee740a8732f7723c32b8, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 4329086884533218667, guid: 6fb6fe6b6b88ee740a8732f7723c32b8, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 3669890053050685099, guid: 6fb6fe6b6b88ee740a8732f7723c32b8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1196420681}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2708794089237627990, guid: 6fb6fe6b6b88ee740a8732f7723c32b8, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1245073462}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6fb6fe6b6b88ee740a8732f7723c32b8, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 496788297}
   - {fileID: 1915292668}
   - {fileID: 237883958}
   - {fileID: 735138081}
   - {fileID: 4304123713798220237}
   - {fileID: 8309825700371580423}
   - {fileID: 50088168}
-  - {fileID: 496788297}
   - {fileID: 1022434296}

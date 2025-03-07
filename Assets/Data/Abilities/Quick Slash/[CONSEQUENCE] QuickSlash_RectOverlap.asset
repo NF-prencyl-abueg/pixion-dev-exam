@@ -27,6 +27,7 @@ MonoBehaviour:
   Height: {fileID: 11400000, guid: e13316518738a9448aeb3ef6289125f3, type: 2}
   FrontOffset: {fileID: 11400000, guid: 2fc668d5f18c83243bab0ab02acca2a6, type: 2}
   CenterParameterKey: {fileID: 11400000, guid: 83f84282e1a12074c904e48c25dc1ce3, type: 2}
-  EnemyListParameterKey: {fileID: 11400000, guid: 88f2047015708074c8205207f50bbb9d, type: 2}
+  TargetListParameterKey: {fileID: 11400000, guid: 88f2047015708074c8205207f50bbb9d, type: 2}
+  TargetTag: {fileID: 11400000, guid: cd5d9d2cadcf4c84d80147d1da6c3dec, type: 2}
   IsVisualized: 1
   VisualizerPrefab: {fileID: 3258453889424858441, guid: 6021b8da3e18d8e42ac0e7373cf86006, type: 3}

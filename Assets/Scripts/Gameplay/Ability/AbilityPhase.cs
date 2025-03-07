@@ -31,9 +31,8 @@ public class AbilityPhase: SerializedScriptableObject
                     
                 foreach (var consequence in ConsequenceTimingDictionary[timing])
                 {
-                    await consequence.ExecuteConsequence(abilityParameters);
+                    consequence.ExecuteConsequence(abilityParameters).Forget();
                 }
-                
             }
 
             await UniTask.Yield(PlayerLoopTiming.Update);
