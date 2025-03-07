@@ -1,16 +1,13 @@
 using System;
 using Cysharp.Threading.Tasks;
-using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Serialization;
 
 
 [CreateAssetMenu(fileName = "New Ability", menuName = "ScriptableObjects/Ability/New Ability")]
 [Serializable]
-public class Ability : SerializedScriptableObject, IActivateable, ICooldown
+public class Ability : BaseAbility, IActivateable, ICooldown
 {
-    public string ID;
-    public AbilityExtendableEnum AbilityEnum;
     public Stat Cooldown;
     public AbilityBehaviour Behaviour;
     public AbilityParameterExtendableEnum CenterTransformParameter;
@@ -46,7 +43,7 @@ public class Ability : SerializedScriptableObject, IActivateable, ICooldown
             await UniTask.Yield(PlayerLoopTiming.Update);
             _remainingTime -= Time.deltaTime;
         }
-        _isOnCooldown = false;
+        ResetCooldown();
     }
 
     public void ResetCooldown()

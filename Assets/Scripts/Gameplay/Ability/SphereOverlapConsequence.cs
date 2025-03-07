@@ -3,6 +3,7 @@ using System.Linq;
 using Cysharp.Threading.Tasks;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 [CreateAssetMenu(fileName = "New Sphere Overlap Consequence", menuName = "ScriptableObjects/Ability/Sphere Overlap Consequence")]
 public class SphereOverlapConsequence : Consequence
@@ -11,7 +12,8 @@ public class SphereOverlapConsequence : Consequence
     public Stat FrontOffset;
     
     public AbilityParameterExtendableEnum CenterParameterKey;
-    public AbilityParameterExtendableEnum EnemyListParameterKey;
+    public AbilityParameterExtendableEnum TargetListParameterKey;
+    public AbilityParameterExtendableEnum TargetTag;
     
     public bool IsVisualized = false;
     [ShowIf("IsVisualized")]
@@ -32,13 +34,13 @@ public class SphereOverlapConsequence : Consequence
         
         foreach (Collider collider in colliders)
         {
-            if (!collider.CompareTag("Enemy"))
+            if (!collider.CompareTag(TargetTag.name))
                 continue;
             
             targets.Add(collider.gameObject);
         }
         
-        abilityParameters.SetParameter(EnemyListParameterKey, targets.ToList());
+        abilityParameters.SetParameter(TargetListParameterKey, targets.ToList());
         await ExecuteNextConsequence(abilityParameters);
     }
     
